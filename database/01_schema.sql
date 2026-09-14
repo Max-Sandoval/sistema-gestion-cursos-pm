@@ -76,18 +76,39 @@ CREATE TABLE cursos_realizados (
     fecha_vencimiento DATE,
     id_estado INTEGER NOT NULL,
     nota DECIMAL(5,2),
+    puesto INTEGER,
+    total_participantes INTEGER,
 
     CONSTRAINT fk_curso_realizado_funcionario
-        FOREIGN KEY (id_funcionario)
-        REFERENCES funcionarios(id_funcionario),
+      FOREIGN KEY (id_funcionario)
+      REFERENCES funcionarios(id_funcionario),
 
     CONSTRAINT fk_curso_realizado_curso
-        FOREIGN KEY (id_curso)
-        REFERENCES cursos(id_curso),
+      FOREIGN KEY (id_curso)
+      REFERENCES cursos(id_curso),
 
     CONSTRAINT fk_curso_realizado_estado
-        FOREIGN KEY (id_estado)
-        REFERENCES estado_curso(id_estado)
+      FOREIGN KEY (id_estado)
+      REFERENCES estado_curso(id_estado),
+
+    CONSTRAINT chk_puesto_positivo
+      CHECK (
+        puesto IS NULL
+        OR puesto > 0
+      ),
+
+    CONSTRAINT chk_total_participantes_positivo
+      CHECK (
+        total_participantes IS NULL
+        OR total_participantes > 0
+      ),
+
+    CONSTRAINT chk_puesto_total
+      CHECK (
+        puesto IS NULL
+        OR total_participantes IS NULL
+        OR puesto <= total_participantes
+      )
 );
 
 CREATE TABLE roles (
@@ -96,16 +117,17 @@ CREATE TABLE roles (
     descripcion VARCHAR(255)
 );
 
-CREATE TABLE usuarios (
-    id_usuario SERIAL PRIMARY KEY,
-    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    correo VARCHAR(150) NOT NULL UNIQUE,
+CREATE TABLE funcionarios (
+    id_funcionario SERIAL PRIMARY KEY,
+    npi VARCHAR(20) NOT NULL UNIQUE,
+    grado VARCHAR(50) NOT NULL,
+    especialidad VARCHAR(100),
+    apellidos VARCHAR(100) NOT NULL,
+    nombres VARCHAR(100) NOT NULL,
+    rut VARCHAR(12) UNIQUE,
     activo BOOLEAN NOT NULL DEFAULT TRUE,
-    id_rol INTEGER NOT NULL,
-
-    CONSTRAINT fk_usuario_rol
-        FOREIGN KEY (id_rol)
-        REFERENCES roles(id_rol)
+    id_reparticion INTEGER NOT NULL,
+    CONSTRAINT fk_funcionario_reparticion FOREIGN KEY (id_reparticion)
+      REFERENCES reparticiones(id_reparticion)
 );
 

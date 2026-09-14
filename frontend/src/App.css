@@ -1,0 +1,2087 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  background-color: #f3f5f7;
+  color: #1f2933;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+
+/* =========================================================
+   LOGO - INICIO DE SESIÓN
+========================================================= */
+
+.logo-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.logo-login img {
+  display: block;
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+========================================================= */
+
+.encabezado {
+  position: relative;
+  padding: 28px 20px;
+  text-align: center;
+  background-color: #163a5f;
+  color: white;
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+
+/* PLACA POLICÍA MARÍTIMA - ENCABEZADO */
+
+.placa-header {
+  position: absolute;
+  top: 14px;
+  left: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placa-header img {
+  display: block;
+  width: 180px;
+  height: 170px;
+  object-fit: contain;
+}
+
+/* BOTÓN CERRAR SESIÓN */
+
+.boton-salir {
+  padding: 10px 18px;
+  border: 1px solid #f59e0b;
+  border-radius: 6px;
+  background-color: #d97706;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.boton-salir:hover {
+  background-color: #b45309;
+  border-color: #b45309;
+}
+
+.boton-salir-superior {
+  position: absolute;
+  top: 76px;
+  right: 30px;
+}
+
+
+/* =========================================================
+   MARCA DE AGUA - APLICACIÓN
+   Solo aparece cuando el encabezado está visible
+========================================================= */
+
+.app:has(.encabezado)::before {
+  content: "";
+  position: fixed;
+  left: 50%;
+  top: 71%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background-image: url('./assets/logo-policiamaritima.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app:has(.encabezado) > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+========================================================= */
+
+.contenido {
+  width: 98.5%;
+  max-width: 1850px;
+  margin: 30px auto;
+}
+
+
+/* =========================================================
+   PANELES
+========================================================= */
+
+.panel-filtros,
+.panel-resultados {
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel-filtros h2,
+.panel-resultados h2 {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   FORMULARIOS Y FILTROS
+========================================================= */
+
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.filtros-reporte-reparticion {
+  display: grid;
+  grid-template-columns: minmax(0, 430px) minmax(0, 430px);
+  column-gap: 14px;
+  row-gap: 14px;
+  max-width: 900px;
+  align-items: end;
+}
+
+.filtros-reporte-reparticion .campo {
+  width: 100%;
+}
+
+.filtros-reporte-reparticion .campo select {
+  width: 100%;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+.campo select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 16px;
+}
+
+.campo select:disabled {
+  background-color: #e9ecef;
+}
+
+.campo input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.boton-buscar {
+  margin-top: 22px;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: #163a5f;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton-buscar:hover {
+  background-color: #0f2a45;
+}
+
+.boton-admin {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #163a5f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton-admin:hover {
+  background-color: #e8eef4;
+}
+
+.boton-cancelar {
+  margin-left: 12px;
+  margin-top: 22px;
+  padding: 12px 32px;
+  border: 1px solid #9aa8b5;
+  border-radius: 6px;
+  background-color: white;
+  color: #34495e;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.boton-cancelar:hover {
+  background-color: #eef2f5;
+}
+
+.mensaje-registro {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #1b6e35;
+}
+
+
+/* =========================================================
+   TABLAS
+========================================================= */
+
+.sin-resultados {
+  color: #66788a;
+}
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1500px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #d9e0e6;
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  background-color: #eef2f5;
+}
+
+tbody tr:hover {
+  background-color: #f7f9fb;
+}
+
+
+/* Espacio adicional para la última columna */
+
+th:last-child,
+td:last-child {
+  min-width: 190px;
+  width: 190px;
+  padding-left: 16px;
+  padding-right: 20px;
+}
+
+
+/* =========================================================
+   MENÚ PRINCIPAL
+========================================================= */
+
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+
+.menu-principal button {
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.menu-principal button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.menu-principal button.activo {
+  background-color: white;
+  color: #163a5f;
+}
+
+
+/* =========================================================
+   INICIO
+========================================================= */
+
+.panel-inicio {
+  background-color: white;
+  padding: 28px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel-inicio h2 {
+  margin-top: 0;
+  color: #163a5f;
+}
+
+.texto-bienvenida {
+  font-size: 19px;
+}
+
+.tarjetas-inicio {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  );
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.tarjeta-menu {
+  min-height: 145px;
+  padding: 22px;
+  border: 1px solid #d6dee5;
+  border-radius: 9px;
+  background-color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tarjeta-menu:hover {
+  transform: translateY(-2px);
+  border-color: #163a5f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-menu h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #163a5f;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.tarjeta-menu p {
+  margin-bottom: 0;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   NAVEGACIÓN INTERNA
+========================================================= */
+
+.barra-navegacion-interna {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  background-color: #eef2f5;
+  border-radius: 7px;
+  color: #425466;
+  font-size: 15px;
+}
+
+.boton-volver {
+  padding: 12px 24px;
+  border: 1px solid #9aa8b5;
+  border-radius: 6px;
+  background-color: white;
+  color: #163a5f;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-volver:hover {
+  background-color: #e6edf3;
+}
+
+
+/* =========================================================
+   PERFIL
+========================================================= */
+
+.datos-perfil {
+  margin-top: 20px;
+  padding: 18px;
+  background-color: #f5f7f9;
+  border-radius: 7px;
+}
+
+.datos-perfil p {
+  margin: 8px 0;
+}
+
+
+/* =========================================================
+   MÓDULOS EN DESARROLLO
+========================================================= */
+
+.modulo-desarrollo {
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #f3f5f7;
+  color: #66717c;
+}
+
+
+/* =========================================================
+   ESTADO DE LOS CURSOS
+========================================================= */
+
+.estado-curso {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 155px;
+  width: max-content;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.estado-curso strong {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.estado-curso span {
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+
+/* VIGENTE */
+
+.estado-vigente {
+  background-color: #e8f5e9;
+  border-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+.estado-vigente span {
+  color: #2e7d32;
+}
+
+
+/* VENCIDO */
+
+.estado-vencido {
+  background-color: #fdeaea;
+  border-color: #ef9a9a;
+  color: #b71c1c;
+}
+
+.estado-vencido span {
+  color: #c62828;
+}
+
+
+/* EN PROCESO */
+
+.estado-proceso {
+  background-color: #fff3e0;
+  border-color: #ffcc80;
+  color: #e65100;
+}
+
+.estado-proceso span {
+  color: #ef6c00;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .filtros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .placa-header {
+    position: static;
+    margin-bottom: 12px;
+  }
+
+  .placa-header img {
+    width: 78px;
+    height: 92px;
+  }
+
+  .boton-salir-superior {
+    position: static;
+    margin-top: 14px;
+  }
+
+  .menu-principal {
+    flex-direction: column;
+  }
+
+  .menu-principal button {
+    width: 100%;
+  }
+
+  .barra-navegacion-interna {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tarjetas-inicio {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .logo-login img {
+    width: 125px;
+    height: 125px;
+  }
+
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+
+  .encabezado h1 {
+    font-size: 25px;
+  }
+
+  .contenido {
+    width: 96%;
+  }
+}
+
+/* =========================================================
+   ACCIONES DE ADMINISTRACIÓN
+========================================================= */
+
+.boton-editar {
+  padding: 8px 16px;
+  border: 1px solid #163a5f;
+  border-radius: 5px;
+  background-color: white;
+  color: #163a5f;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-editar:hover {
+  background-color: #e6edf3;
+}
+
+/* =========================================================
+   BOTONES DE ACCIONES - FUNCIONARIOS
+========================================================= */
+
+.acciones-tabla {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.boton-editar {
+  padding: 8px 14px;
+  border: 1px solid #163a5f;
+  border-radius: 5px;
+  background-color: white;
+  color: #163a5f;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-editar:hover {
+  background-color: #e6edf3;
+}
+
+.boton-eliminar {
+  padding: 8px 14px;
+  border: 1px solid #b42318;
+  border-radius: 5px;
+  background-color: white;
+  color: #b42318;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-eliminar:hover {
+  background-color: #fce8e6;
+}
+
+/* =========================================================
+   ESTADO DE FUNCIONARIOS
+   ========================================================= */
+
+.estado-activo {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: #e7f6ec;
+  color: #1f7a3f;
+  border: 1px solid #b8dfc4;
+}
+
+.estado-inactivo {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  background-color: #f3f3f3;
+  color: #666666;
+  border: 1px solid #cccccc;
+}
+
+
+/* =========================================================
+   BOTÓN DAR DE BAJA
+   ========================================================= */
+
+.boton-baja {
+  padding: 8px 14px;
+  border: 1px solid #d97706;
+  border-radius: 5px;
+  background-color: white;
+  color: #d97706;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-baja:hover {
+  background-color: #fff3e0;
+}
+
+
+/* =========================================================
+   BOTÓN REACTIVAR
+   ========================================================= */
+
+.boton-reactivar {
+  padding: 8px 14px;
+  border: 1px solid #198754;
+  border-radius: 5px;
+  background-color: white;
+  color: #198754;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-reactivar:hover {
+  background-color: #e8f5ee;
+}
+
+/* =========================================================
+   BUSCADOR DE FUNCIONARIOS - ADMINISTRACIÓN
+========================================================= */
+
+.buscador-funcionarios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+.campo-buscador-funcionario {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.campo-buscador-funcionario input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  font-size: 15px;
+  background: white;
+}
+
+.campo-buscador-funcionario input:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+/* BOTÓN BUSCAR */
+
+.buscador-funcionarios .boton-buscar {
+  margin: 0;
+  height: 42px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BOTÓN LIMPIAR */
+
+.boton-limpiar {
+  margin: 0;
+  height: 42px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #6b7280;
+  border-radius: 6px;
+
+  background: white;
+  color: #4b5563;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton-limpiar:hover {
+  background: #eef2f5;
+}
+
+/* =========================================================
+   BOTONES DEL FILTRO DE UBICACIÓN - FUNCIONARIOS
+   ========================================================= */
+
+.acciones-filtro-funcionarios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.acciones-filtro-funcionarios .boton-buscar,
+.acciones-filtro-funcionarios .boton-limpiar {
+  margin: 0;
+  height: 42px;
+}
+
+
+/* =========================================================
+   RESPONSIVE BUSCADOR DE FUNCIONARIOS
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .buscador-funcionarios {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .buscador-funcionarios .campo-buscador-funcionario {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .buscador-funcionarios .boton-buscar,
+  .buscador-funcionarios .boton-limpiar {
+    flex: 1;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .campo-buscador-funcionario {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .buscador-funcionarios {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   AJUSTES DE ANCHO - GESTIÓN DE FUNCIONARIOS
+   ========================================================= */
+
+/* Aprovechar prácticamente todo el ancho de la pantalla */
+
+.contenido {
+  width: 99.5%;
+  max-width: none;
+  margin: 30px auto;
+}
+
+
+/* =========================================================
+   TABLA DE FUNCIONARIOS
+   ========================================================= */
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: visible;
+  padding-bottom: 4px;
+}
+
+.tabla-contenedor table {
+  width: 100%;
+  min-width: 0;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+
+/* Espaciado general un poco más compacto */
+
+.tabla-contenedor th,
+.tabla-contenedor td {
+  padding: 12px 10px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ANCHO DE COLUMNAS
+   ========================================================= */
+
+/* NPI */
+
+.tabla-contenedor th:nth-child(1),
+.tabla-contenedor td:nth-child(1) {
+  width: 7%;
+}
+
+
+/* Grado */
+
+.tabla-contenedor th:nth-child(2),
+.tabla-contenedor td:nth-child(2) {
+  width: 8%;
+}
+
+
+/* Apellidos */
+
+.tabla-contenedor th:nth-child(3),
+.tabla-contenedor td:nth-child(3) {
+  width: 11%;
+  min-width: 145px;
+}
+
+
+/* Nombres */
+
+.tabla-contenedor th:nth-child(4),
+.tabla-contenedor td:nth-child(4) {
+  width: 11%;
+  min-width: 145px;
+}
+
+
+/* Especialidad */
+
+.tabla-contenedor th:nth-child(5),
+.tabla-contenedor td:nth-child(5) {
+  width: 8%;
+}
+
+
+/* RUT */
+
+.tabla-contenedor th:nth-child(6),
+.tabla-contenedor td:nth-child(6) {
+  width: 9%;
+}
+
+
+/* Zona Naval */
+
+.tabla-contenedor th:nth-child(7),
+.tabla-contenedor td:nth-child(7) {
+  width: 10%;
+}
+
+
+/* Repartición */
+
+.tabla-contenedor th:nth-child(8),
+.tabla-contenedor td:nth-child(8) {
+  width: 15%;
+}
+
+
+/* Estado */
+
+.tabla-contenedor th:nth-child(9),
+.tabla-contenedor td:nth-child(9) {
+  width: 7%;
+}
+
+
+/* Acciones */
+
+.tabla-contenedor th:nth-child(10),
+.tabla-contenedor td:nth-child(10) {
+  width: auto;
+  min-width: 355px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+/* =========================================================
+   BOTONES DE ACCIONES
+   ========================================================= */
+
+.acciones-tabla {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+
+/* Cursos realizados */
+
+.boton-cursos-realizados {
+  padding: 8px 11px;
+  border: 1px solid #163a5f;
+  border-radius: 5px;
+  background-color: #163a5f;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.boton-cursos-realizados:hover {
+  background-color: #0f2a45;
+}
+
+
+/* Editar */
+
+.acciones-tabla .boton-editar {
+  padding: 8px 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+/* Dar de baja */
+
+.acciones-tabla .boton-baja {
+  padding: 8px 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+/* Eliminar */
+
+.acciones-tabla .boton-eliminar {
+  padding: 8px 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+/* Reactivar */
+
+.acciones-tabla .boton-reactivar {
+  padding: 8px 11px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   PANTALLAS MÁS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .contenido {
+    width: 98%;
+  }
+
+  .tabla-contenedor {
+    overflow-x: auto;
+  }
+
+  .tabla-contenedor table {
+    min-width: 1300px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .contenido {
+    width: 96%;
+  }
+
+}
+
+/* =========================================================
+   ESTADOS EN HISTORIAL DE CURSOS
+   ========================================================= */
+
+.estado-vigente,
+.estado-vencido,
+.estado-proceso {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  width: max-content;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* VIGENTE */
+
+.estado-vigente {
+  background-color: #e7f6ec;
+  color: #1f7a3f;
+  border: 1px solid #b8dfc4;
+}
+
+
+/* VENCIDO */
+
+.estado-vencido {
+  background-color: #fdeaea;
+  color: #b42318;
+  border: 1px solid #f2b8b5;
+}
+
+
+/* EN PROCESO */
+
+.estado-proceso {
+  background-color: #fff3e0;
+  color: #d97706;
+  border: 1px solid #ffcc80;
+}
+
+
+/* =========================================================
+   ADMINISTRACIÓN DE USUARIOS
+========================================================= */
+
+.usuarios-admin-acciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+/* BUSCADOR */
+
+.buscador-usuarios-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+}
+
+
+.buscador-usuarios {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-usuarios:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+/* BOTONES BUSCAR Y LIMPIAR */
+
+.buscador-usuarios-form .boton-buscar,
+.buscador-usuarios-form .boton-limpiar {
+  margin: 0;
+  height: 44px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/* BOTÓN REGISTRAR USUARIO */
+
+.boton-registrar-usuario {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/* BOTÓN RESTABLECER CONTRASEÑA */
+
+.boton-password {
+  padding: 8px 11px;
+  border: 1px solid #6b7280;
+  border-radius: 5px;
+  background-color: white;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.boton-password:hover {
+  background-color: #eef2f5;
+}
+
+
+/* TABLA DE USUARIOS */
+
+.tabla-usuarios table {
+  width: 100%;
+  min-width: 0;
+}
+
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+  white-space: nowrap;
+}
+
+
+.tabla-usuarios th:nth-child(1),
+.tabla-usuarios td:nth-child(1) {
+  width: 15%;
+}
+
+
+.tabla-usuarios th:nth-child(2),
+.tabla-usuarios td:nth-child(2) {
+  width: 28%;
+}
+
+
+.tabla-usuarios th:nth-child(3),
+.tabla-usuarios td:nth-child(3) {
+  width: 18%;
+}
+
+
+.tabla-usuarios th:nth-child(4),
+.tabla-usuarios td:nth-child(4) {
+  width: 12%;
+}
+
+
+.tabla-usuarios th:nth-child(5),
+.tabla-usuarios td:nth-child(5) {
+  width: 27%;
+  min-width: 390px;
+}
+
+
+.tabla-usuarios .acciones-tabla {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+  .buscador-usuarios-form {
+    flex-wrap: wrap;
+  }
+
+
+  .buscador-usuarios {
+    max-width: none;
+    flex: 1 1 100%;
+  }
+
+
+  .tabla-usuarios {
+    overflow-x: auto;
+  }
+
+
+  .tabla-usuarios table {
+    min-width: 900px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .buscador-usuarios-form {
+    align-items: stretch;
+  }
+
+
+  .buscador-usuarios-form .boton-buscar,
+  .buscador-usuarios-form .boton-limpiar {
+    flex: 1;
+  }
+
+
+  .boton-registrar-usuario {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE CURSOS - BUSCADOR
+========================================================= */
+
+.cursos-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+.buscador-cursos {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-cursos:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+.boton-registrar-curso {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+.texto-codigo-automatico {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: #eef2f5;
+  color: #425466;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - ADMINISTRACIÓN DE CURSOS
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .cursos-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-cursos {
+    max-width: none;
+  }
+
+
+  .boton-registrar-curso {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE ZONAS NAVALES
+========================================================= */
+
+.zonas-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+.buscador-zonas {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-zonas:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+.boton-registrar-zona {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+@media (max-width: 700px) {
+
+  .zonas-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-zonas {
+    max-width: none;
+  }
+
+
+  .boton-registrar-zona {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE REPARTICIONES
+========================================================= */
+
+.reparticiones-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+.buscador-reparticiones {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-reparticiones:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+.boton-registrar-reparticion {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/* Evita que los anchos definidos para la tabla
+   de funcionarios afecten esta tabla */
+
+.tabla-reparticiones table {
+  width: 100%;
+  min-width: 0;
+}
+
+
+.tabla-reparticiones th:nth-child(1),
+.tabla-reparticiones td:nth-child(1) {
+  width: 35%;
+}
+
+
+.tabla-reparticiones th:nth-child(2),
+.tabla-reparticiones td:nth-child(2) {
+  width: 25%;
+}
+
+
+.tabla-reparticiones th:nth-child(3),
+.tabla-reparticiones td:nth-child(3) {
+  width: 25%;
+}
+
+
+.tabla-reparticiones th:nth-child(4),
+.tabla-reparticiones td:nth-child(4) {
+  width: 15%;
+  min-width: 170px;
+}
+
+
+@media (max-width: 700px) {
+
+  .reparticiones-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-reparticiones {
+    max-width: none;
+  }
+
+
+  .boton-registrar-reparticion {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE INSTITUCIONES
+========================================================= */
+
+.instituciones-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+.buscador-instituciones {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-instituciones:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+.boton-registrar-institucion {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+.tabla-instituciones table {
+  width: 100%;
+  min-width: 0;
+}
+
+
+.tabla-instituciones th:nth-child(1),
+.tabla-instituciones td:nth-child(1) {
+  width: 45%;
+}
+
+
+.tabla-instituciones th:nth-child(2),
+.tabla-instituciones td:nth-child(2) {
+  width: 35%;
+}
+
+
+.tabla-instituciones th:nth-child(3),
+.tabla-instituciones td:nth-child(3) {
+  width: 20%;
+  min-width: 170px;
+}
+
+
+@media (max-width: 700px) {
+
+  .instituciones-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-instituciones {
+    max-width: none;
+  }
+
+
+  .boton-registrar-institucion {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE TIPOS DE CURSOS
+========================================================= */
+
+.tipos-cursos-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+.buscador-tipos-cursos {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+  background-color: white;
+  color: #1f2933;
+  font-size: 16px;
+}
+
+
+.buscador-tipos-cursos:focus {
+  outline: none;
+  border-color: #163a5f;
+  box-shadow: 0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+.boton-registrar-tipo {
+  margin-top: 0;
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLA DE TIPOS DE CURSOS
+========================================================= */
+
+.tabla-tipos-cursos table {
+  width: 100%;
+  min-width: 0;
+}
+
+
+.tabla-tipos-cursos th:nth-child(1),
+.tabla-tipos-cursos td:nth-child(1) {
+  width: 30%;
+}
+
+
+.tabla-tipos-cursos th:nth-child(2),
+.tabla-tipos-cursos td:nth-child(2) {
+  width: 50%;
+}
+
+
+.tabla-tipos-cursos th:nth-child(3),
+.tabla-tipos-cursos td:nth-child(3) {
+  width: 20%;
+  min-width: 170px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .tipos-cursos-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-tipos-cursos {
+    max-width: none;
+  }
+
+
+  .boton-registrar-tipo {
+    width: 100%;
+  }
+
+}
+
+/* =========================================================
+   ADMINISTRACIÓN DE ESTADOS DE CURSOS
+   ========================================================= */
+
+.estados-cursos-admin-acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 24px;
+}
+
+
+/* BUSCADOR */
+
+.buscador-estados-cursos {
+  width: 100%;
+  max-width: 650px;
+  height: 44px;
+  padding: 0 14px;
+
+  border: 1px solid #b8c2cc;
+  border-radius: 6px;
+
+  background-color: white;
+  color: #1f2933;
+
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+.buscador-estados-cursos:focus {
+  outline: none;
+
+  border-color: #163a5f;
+
+  box-shadow:
+    0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+/* BOTÓN REGISTRAR */
+
+.boton-registrar-estado {
+  margin-top: 0;
+
+  height: 44px;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLA DE ESTADOS
+   ========================================================= */
+
+.tabla-estados-cursos {
+  width: 100%;
+}
+
+
+.tabla-estados-cursos table {
+  width: 100%;
+  min-width: 0;
+
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+
+/* Neutraliza los anchos globales usados en otras tablas */
+
+.tabla-estados-cursos th,
+.tabla-estados-cursos td {
+  min-width: 0;
+  white-space: normal;
+}
+
+
+/* ESTADO */
+
+.tabla-estados-cursos th:nth-child(1),
+.tabla-estados-cursos td:nth-child(1) {
+  width: 30%;
+}
+
+
+/* DESCRIPCIÓN */
+
+.tabla-estados-cursos th:nth-child(2),
+.tabla-estados-cursos td:nth-child(2) {
+  width: 50%;
+}
+
+
+/* ACCIONES */
+
+.tabla-estados-cursos th:nth-child(3),
+.tabla-estados-cursos td:nth-child(3) {
+  width: 20%;
+  min-width: 170px;
+}
+
+
+/* Botones Editar / Eliminar en una misma línea */
+
+.tabla-estados-cursos .acciones-tabla {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.tabla-estados-cursos + * {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .estados-cursos-admin-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .buscador-estados-cursos {
+    max-width: none;
+  }
+
+
+  .boton-registrar-estado {
+    width: 100%;
+  }
+
+
+  .tabla-estados-cursos {
+    overflow-x: auto;
+  }
+
+
+  .tabla-estados-cursos table {
+    min-width: 650px;
+  }
+
+}
+
+/* =========================================================
+   FORMULARIOS TIPOS DE CURSOS Y ESTADOS DE CURSOS
+   MISMO FORMATO QUE INSTITUCIONES
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   FORMULARIO EN DOS COLUMNAS
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros form,
+.estados-cursos-admin .panel-filtros form {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 430px)
+    minmax(0, 430px);
+
+  column-gap: 14px;
+  row-gap: 14px;
+
+  max-width: 900px;
+}
+
+
+/* ---------------------------------------------------------
+   CADA CAMPO
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros .campo,
+.estados-cursos-admin .panel-filtros .campo {
+  width: 100%;
+  margin: 0;
+}
+
+
+/* ---------------------------------------------------------
+   LABEL
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros .campo label,
+.estados-cursos-admin .panel-filtros .campo label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  font-weight: 600;
+}
+
+
+/* ---------------------------------------------------------
+   INPUTS
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros .campo input,
+.estados-cursos-admin .panel-filtros .campo input {
+  width: 100%;
+  height: 44px;
+
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+
+  background-color: #ffffff;
+  color: #1f2933;
+
+  font-size: 15px;
+}
+
+.tipos-cursos-admin .panel-filtros .campo:nth-child(2) {
+  position: relative;
+  top: -16px;
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPCIÓN DE ESTADO
+   Se deja visualmente igual a un input
+   --------------------------------------------------------- */
+
+.estados-cursos-admin .panel-filtros .campo textarea {
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+
+  padding: 11px 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #b8c2cc;
+  border-radius: 4px;
+
+  background-color: #ffffff;
+  color: #1f2933;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  resize: vertical;
+}
+
+
+/* ---------------------------------------------------------
+   FOCUS
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros .campo input:focus,
+.estados-cursos-admin .panel-filtros .campo input:focus,
+.estados-cursos-admin .panel-filtros .campo textarea:focus {
+  outline: none;
+
+  border-color: #163a5f;
+
+  box-shadow:
+    0 0 0 2px rgba(22, 58, 95, 0.12);
+}
+
+
+/* ---------------------------------------------------------
+   BOTONES DEL FORMULARIO
+   --------------------------------------------------------- */
+
+.tipos-cursos-admin .panel-filtros .acciones-formulario,
+.estados-cursos-admin .panel-filtros .acciones-formulario {
+  grid-column: 1 / -1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 2px;
+}
+
+
+/* Evita que los botones ocupen todo el ancho */
+
+.tipos-cursos-admin .panel-filtros .acciones-formulario button,
+.estados-cursos-admin .panel-filtros .acciones-formulario button {
+  width: auto;
+  min-width: 100px;
+  height: 42px;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .tipos-cursos-admin .panel-filtros form,
+  .estados-cursos-admin .panel-filtros form {
+    grid-template-columns: 1fr;
+    max-width: none;
+  }
+
+
+  .tipos-cursos-admin .panel-filtros .acciones-formulario,
+  .estados-cursos-admin .panel-filtros .acciones-formulario {
+    grid-column: 1;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .tipos-cursos-admin .panel-filtros .acciones-formulario,
+  .estados-cursos-admin .panel-filtros .acciones-formulario {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .tipos-cursos-admin .panel-filtros .acciones-formulario button,
+  .estados-cursos-admin .panel-filtros .acciones-formulario button {
+    width: 100%;
+  }
+
+}

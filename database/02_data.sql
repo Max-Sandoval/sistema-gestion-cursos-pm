@@ -118,3 +118,33 @@ VALUES
 (9, 3, '2025-03-01', '2025-03-20', '2026-03-20', 1, 6.0);
 
 
+
+-- ROLES DEL SISTEMA
+-- =====================================================
+
+INSERT INTO roles (nombre_rol, descripcion)
+VALUES
+('Administrador', 'Usuario con acceso a funciones de administración y consulta'),
+('Consulta', 'Usuario con acceso únicamente a funciones de consulta');
+
+
+
+-- USUARIOS DE PRUEBA DEL SISTEMA
+-- =====================================================
+INSERT INTO usuarios
+(nombre_usuario, password_hash, correo, activo, id_rol)
+VALUES
+(
+    'admin',
+    '$2b$10$RRJCs80GSpueYi/9aXmZlOyEQj5Ojv8s./KE3URJmb/uZGEiTaj/C',
+    'admin@cursospm.cl',
+    TRUE,
+    1
+),
+(
+    'consulta',
+    '$2b$10$B0b690RwuNjEBrOMZxpKsOvzUG5EvIwpYR91rWycWTqxnWEmJmk8y',
+    'consulta@cursospm.cl',
+    TRUE,
+    2
+);
