@@ -4,13 +4,11 @@ CREATE TABLE zonas_navales (
     descripcion VARCHAR(255)
 );
 
-
 CREATE TABLE reparticiones (
     id_reparticion SERIAL PRIMARY KEY,
     nombre_reparticion VARCHAR(150) NOT NULL,
     tipo_reparticion VARCHAR(100),
     id_zona INTEGER NOT NULL,
-
     CONSTRAINT fk_reparticion_zona
         FOREIGN KEY (id_zona)
         REFERENCES zonas_navales(id_zona)
@@ -24,8 +22,8 @@ CREATE TABLE funcionarios (
     apellidos VARCHAR(100) NOT NULL,
     nombres VARCHAR(100) NOT NULL,
     rut VARCHAR(12) UNIQUE,
+    activo BOOLEAN NOT NULL DEFAULT TRUE,
     id_reparticion INTEGER NOT NULL,
-
     CONSTRAINT fk_funcionario_reparticion
         FOREIGN KEY (id_reparticion)
         REFERENCES reparticiones(id_reparticion)
@@ -51,11 +49,9 @@ CREATE TABLE cursos (
     vigencia_meses INTEGER,
     id_tipo_curso INTEGER NOT NULL,
     id_institucion INTEGER NOT NULL,
-
     CONSTRAINT fk_curso_tipo
         FOREIGN KEY (id_tipo_curso)
         REFERENCES tipo_curso(id_tipo_curso),
-
     CONSTRAINT fk_curso_institucion
         FOREIGN KEY (id_institucion)
         REFERENCES instituciones(id_institucion)
@@ -78,37 +74,31 @@ CREATE TABLE cursos_realizados (
     nota DECIMAL(5,2),
     puesto INTEGER,
     total_participantes INTEGER,
-
     CONSTRAINT fk_curso_realizado_funcionario
-      FOREIGN KEY (id_funcionario)
-      REFERENCES funcionarios(id_funcionario),
-
+        FOREIGN KEY (id_funcionario)
+        REFERENCES funcionarios(id_funcionario),
     CONSTRAINT fk_curso_realizado_curso
-      FOREIGN KEY (id_curso)
-      REFERENCES cursos(id_curso),
-
+        FOREIGN KEY (id_curso)
+        REFERENCES cursos(id_curso),
     CONSTRAINT fk_curso_realizado_estado
-      FOREIGN KEY (id_estado)
-      REFERENCES estado_curso(id_estado),
-
+        FOREIGN KEY (id_estado)
+        REFERENCES estado_curso(id_estado),
     CONSTRAINT chk_puesto_positivo
-      CHECK (
-        puesto IS NULL
-        OR puesto > 0
-      ),
-
+        CHECK (
+            puesto IS NULL
+            OR puesto > 0
+        ),
     CONSTRAINT chk_total_participantes_positivo
-      CHECK (
-        total_participantes IS NULL
-        OR total_participantes > 0
-      ),
-
+        CHECK (
+            total_participantes IS NULL
+            OR total_participantes > 0
+        ),
     CONSTRAINT chk_puesto_total
-      CHECK (
-        puesto IS NULL
-        OR total_participantes IS NULL
-        OR puesto <= total_participantes
-      )
+        CHECK (
+            puesto IS NULL
+            OR total_participantes IS NULL
+            OR puesto <= total_participantes
+        )
 );
 
 CREATE TABLE roles (
@@ -117,17 +107,15 @@ CREATE TABLE roles (
     descripcion VARCHAR(255)
 );
 
-CREATE TABLE funcionarios (
-    id_funcionario SERIAL PRIMARY KEY,
-    npi VARCHAR(20) NOT NULL UNIQUE,
-    grado VARCHAR(50) NOT NULL,
-    especialidad VARCHAR(100),
-    apellidos VARCHAR(100) NOT NULL,
-    nombres VARCHAR(100) NOT NULL,
-    rut VARCHAR(12) UNIQUE,
+CREATE TABLE usuarios (
+    id_usuario SERIAL PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    correo VARCHAR(150) NOT NULL UNIQUE,
     activo BOOLEAN NOT NULL DEFAULT TRUE,
-    id_reparticion INTEGER NOT NULL,
-    CONSTRAINT fk_funcionario_reparticion FOREIGN KEY (id_reparticion)
-      REFERENCES reparticiones(id_reparticion)
+    id_rol INTEGER NOT NULL,
+    CONSTRAINT fk_usuario_rol
+        FOREIGN KEY (id_rol)
+        REFERENCES roles(id_rol)
 );
 
