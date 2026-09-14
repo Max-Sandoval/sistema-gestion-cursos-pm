@@ -91,7 +91,7 @@ function ZonasNavalesAdmin() {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/zonas'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/zonas'
         );
 
 
@@ -300,7 +300,7 @@ function ZonasNavalesAdmin() {
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/zonas',
+            'https://sistema-gestion-cursos-pm.onrender.com/api/zonas',
             {
 
               method: 'POST',
@@ -414,7 +414,7 @@ function ZonasNavalesAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/zonas/${zonaEditando}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/zonas/${zonaEditando}`,
             {
 
               method: 'PUT',
@@ -530,7 +530,7 @@ function ZonasNavalesAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/zonas/${zona.id_zona}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/zonas/${zona.id_zona}`,
             {
 
               method: 'DELETE',

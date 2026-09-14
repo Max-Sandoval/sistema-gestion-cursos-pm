@@ -80,7 +80,7 @@ function InstitucionesAdmin() {
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/instituciones'
+            'https://sistema-gestion-cursos-pm.onrender.com/api/instituciones'
           );
 
 
@@ -273,9 +273,9 @@ function InstitucionesAdmin() {
         const url =
           modoEdicion
 
-            ? `http://localhost:3000/api/instituciones/${institucionEditando}`
+            ? `https://sistema-gestion-cursos-pm.onrender.com/api/instituciones/${institucionEditando}`
 
-            : 'http://localhost:3000/api/instituciones';
+            : 'https://sistema-gestion-cursos-pm.onrender.com/api/instituciones';
 
 
         const metodo =
@@ -401,7 +401,7 @@ function InstitucionesAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/instituciones/${institucion.id_institucion}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/instituciones/${institucion.id_institucion}`,
             {
 
               method: 'DELETE',

@@ -91,11 +91,11 @@ function ReparticionesAdmin() {
       ] = await Promise.all([
 
         fetch(
-          'http://localhost:3000/api/reparticiones'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones'
         ),
 
         fetch(
-          'http://localhost:3000/api/zonas'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/zonas'
         )
 
       ]);
@@ -310,8 +310,8 @@ function ReparticionesAdmin() {
 
         const url =
           modoEdicion
-            ? `http://localhost:3000/api/reparticiones/${reparticionEditando}`
-            : 'http://localhost:3000/api/reparticiones';
+            ? `https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones/${reparticionEditando}`
+            : 'https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones';
 
 
         const metodo =
@@ -437,7 +437,7 @@ function ReparticionesAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/reparticiones/${reparticion.id_reparticion}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones/${reparticion.id_reparticion}`,
             {
 
               method: 'DELETE',

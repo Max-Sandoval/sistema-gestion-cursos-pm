@@ -45,7 +45,7 @@ function TiposCursosAdmin() {
       setCargando(true);
 
       const respuesta = await fetch(
-        'http://localhost:3000/api/tipos-cursos'
+        'https://sistema-gestion-cursos-pm.onrender.com/api/tipos-cursos'
       );
 
       const datos =
@@ -231,8 +231,8 @@ function TiposCursosAdmin() {
 
       const url =
         modoEdicion
-          ? `http://localhost:3000/api/tipos-cursos/${tipoEditando.id_tipo_curso}`
-          : 'http://localhost:3000/api/tipos-cursos';
+          ? `https://sistema-gestion-cursos-pm.onrender.com/api/tipos-cursos/${tipoEditando.id_tipo_curso}`
+          : 'https://sistema-gestion-cursos-pm.onrender.com/api/tipos-cursos';
 
 
       const metodo =
@@ -338,7 +338,7 @@ function TiposCursosAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/tipos-cursos/${tipo.id_tipo_curso}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/tipos-cursos/${tipo.id_tipo_curso}`,
             {
               method: 'DELETE',
 

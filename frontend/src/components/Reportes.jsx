@@ -98,7 +98,7 @@ function Reportes({ irA }) {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/cursos'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/cursos'
         );
 
 
@@ -173,7 +173,7 @@ function Reportes({ irA }) {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/reportes/resumen-capacitacion',
+          'https://sistema-gestion-cursos-pm.onrender.com/api/reportes/resumen-capacitacion',
           {
             method: 'GET',
 
@@ -251,7 +251,7 @@ function Reportes({ irA }) {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/zonas'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/zonas'
         );
 
 
@@ -310,7 +310,7 @@ function Reportes({ irA }) {
 
       const respuesta =
         await fetch(
-          `http://localhost:3000/api/reparticiones?zona=${idZona}`
+          `https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones?zona=${idZona}`
         );
 
 
@@ -413,7 +413,7 @@ function Reportes({ irA }) {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/reportes/cursos-por-reparticion?zona=${zonaSeleccionada}&reparticion=${reparticionSeleccionada}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/reportes/cursos-por-reparticion?zona=${zonaSeleccionada}&reparticion=${reparticionSeleccionada}`,
             {
               method: 'GET',
 
@@ -525,7 +525,7 @@ function Reportes({ irA }) {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/reportes/cursos-por-zona?zona=${zonaReporteSeleccionada}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/reportes/cursos-por-zona?zona=${zonaReporteSeleccionada}`,
             {
               method: 'GET',
 

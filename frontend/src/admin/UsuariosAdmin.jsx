@@ -141,7 +141,7 @@ function UsuariosAdmin() {
 
 
       let url =
-        'http://localhost:3000/api/auth/usuarios';
+        'https://sistema-gestion-cursos-pm.onrender.com/api/auth/usuarios';
 
 
       const queryString =
@@ -220,7 +220,7 @@ function UsuariosAdmin() {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/auth/roles',
+          'https://sistema-gestion-cursos-pm.onrender.com/api/auth/roles',
           {
             headers: {
               Authorization:
@@ -464,7 +464,7 @@ function UsuariosAdmin() {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/auth/usuarios',
+          'https://sistema-gestion-cursos-pm.onrender.com/api/auth/usuarios',
           {
             method: 'POST',
 
@@ -580,7 +580,7 @@ function UsuariosAdmin() {
 
       const respuesta =
         await fetch(
-          `http://localhost:3000/api/auth/usuarios/${usuarioEditando}`,
+          `https://sistema-gestion-cursos-pm.onrender.com/api/auth/usuarios/${usuarioEditando}`,
           {
             method: 'PUT',
 
@@ -712,7 +712,7 @@ function UsuariosAdmin() {
 
       const respuesta =
         await fetch(
-          `http://localhost:3000/api/auth/usuarios/${usuario.id_usuario}/estado`,
+          `https://sistema-gestion-cursos-pm.onrender.com/api/auth/usuarios/${usuario.id_usuario}/estado`,
           {
             method: 'PATCH',
 
@@ -909,7 +909,7 @@ function UsuariosAdmin() {
 
       const respuesta =
         await fetch(
-          `http://localhost:3000/api/auth/usuarios/${usuarioPassword.id_usuario}/password`,
+          `https://sistema-gestion-cursos-pm.onrender.com/api/auth/usuarios/${usuarioPassword.id_usuario}/password`,
           {
             method: 'PATCH',
 

@@ -82,7 +82,7 @@ function FuncionariosAdmin({
 
           const respuesta =
             await fetch(
-              `http://localhost:3000/api/reparticiones?zona=${zonaFiltro}`
+              `https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones?zona=${zonaFiltro}`
             );
 
 

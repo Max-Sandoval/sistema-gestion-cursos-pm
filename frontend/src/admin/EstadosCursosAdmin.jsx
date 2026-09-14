@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://sistema-gestion-cursos-pm.onrender.com/api';
 
 function EstadosCursosAdmin() {
 

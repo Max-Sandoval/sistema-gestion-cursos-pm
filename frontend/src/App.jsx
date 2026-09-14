@@ -97,21 +97,21 @@ function App() {
 
     if (!usuario) return;
 
-    fetch('http://localhost:3000/api/zonas')
+    fetch('https://sistema-gestion-cursos-pm.onrender.com/api/zonas')
       .then((res) => res.json())
       .then((data) => setZonas(data))
       .catch((error) =>
         console.error('Error al cargar zonas:', error)
       );
 
-    fetch('http://localhost:3000/api/cursos')
+    fetch('https://sistema-gestion-cursos-pm.onrender.com/api/cursos')
       .then((res) => res.json())
       .then((data) => setCursos(data))
       .catch((error) =>
         console.error('Error al cargar cursos:', error)
       );
 
-    fetch('http://localhost:3000/api/estados')
+    fetch('https://sistema-gestion-cursos-pm.onrender.com/api/estados')
       .then((res) => res.json())
       .then((data) => setEstados(data))
       .catch((error) =>
@@ -132,7 +132,7 @@ function App() {
 
     if (!usuario) return;
 
-    let url = 'http://localhost:3000/api/reparticiones';
+    let url = 'https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones';
 
     if (zona) {
       url += `?zona=${zona}`;
@@ -167,7 +167,7 @@ function App() {
     if (!zonaRegistro) return;
 
     fetch(
-      `http://localhost:3000/api/reparticiones?zona=${zonaRegistro}`
+      `https://sistema-gestion-cursos-pm.onrender.com/api/reparticiones?zona=${zonaRegistro}`
     )
       .then((res) => res.json())
       .then((data) =>
@@ -240,7 +240,7 @@ function App() {
 
 
       let url =
-        'http://localhost:3000/api/funcionarios';
+        'https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios';
 
 
       const queryString =
@@ -325,7 +325,7 @@ function App() {
     try {
 
       const respuesta = await fetch(
-        'http://localhost:3000/api/auth/login',
+        'https://sistema-gestion-cursos-pm.onrender.com/api/auth/login',
         {
           method: 'POST',
 
@@ -473,7 +473,7 @@ function App() {
     }
 
     let url =
-      'http://localhost:3000/api/funcionarios/buscar';
+      'https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/buscar';
 
     const queryString = parametros.toString();
 
@@ -529,7 +529,7 @@ function App() {
     try {
 
       const respuesta = await fetch(
-        'http://localhost:3000/api/funcionarios',
+        'https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios',
         {
           method: 'POST',
 
@@ -611,7 +611,7 @@ function App() {
     try {
 
       const respuesta = await fetch(
-        `http://localhost:3000/api/funcionarios/${idFuncionario}`,
+        `https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/${idFuncionario}`,
         {
           method: 'PUT',
 
@@ -684,7 +684,7 @@ function App() {
     try {
 
       const respuesta = await fetch(
-        `http://localhost:3000/api/funcionarios/${idFuncionario}`,
+        `https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/${idFuncionario}`,
         {
           method: 'DELETE',
 
@@ -754,7 +754,7 @@ function App() {
     try {
 
       const respuesta = await fetch(
-        `http://localhost:3000/api/funcionarios/${idFuncionario}/estado`,
+        `https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/${idFuncionario}/estado`,
         {
           method: 'PATCH',
 

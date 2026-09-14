@@ -119,7 +119,7 @@ function CursosRealizadosAdmin({
 
       const respuesta =
         await fetch(
-          `http://localhost:3000/api/funcionarios/${funcionario.id_funcionario}/cursos`,
+          `https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/${funcionario.id_funcionario}/cursos`,
           {
             headers: {
 
@@ -184,7 +184,7 @@ function CursosRealizadosAdmin({
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/cursos'
+            'https://sistema-gestion-cursos-pm.onrender.com/api/cursos'
           );
 
 
@@ -231,7 +231,7 @@ function CursosRealizadosAdmin({
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/estados'
+            'https://sistema-gestion-cursos-pm.onrender.com/api/estados'
           );
 
 
@@ -710,7 +710,7 @@ function CursosRealizadosAdmin({
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/funcionarios/${funcionario.id_funcionario}/cursos`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/funcionarios/${funcionario.id_funcionario}/cursos`,
             {
 
               method: 'POST',
@@ -824,7 +824,7 @@ function CursosRealizadosAdmin({
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/cursos-realizados/${cursoEditando}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/cursos-realizados/${cursoEditando}`,
             {
 
               method: 'PUT',
@@ -940,7 +940,7 @@ function CursosRealizadosAdmin({
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/cursos-realizados/${curso.id_curso_realizado}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/cursos-realizados/${curso.id_curso_realizado}`,
             {
 
               method: 'DELETE',

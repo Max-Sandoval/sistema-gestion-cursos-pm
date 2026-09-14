@@ -109,7 +109,7 @@ function CursosAdmin() {
 
       const respuesta =
         await fetch(
-          'http://localhost:3000/api/cursos'
+          'https://sistema-gestion-cursos-pm.onrender.com/api/cursos'
         );
 
 
@@ -169,7 +169,7 @@ function CursosAdmin() {
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/tipos-cursos'
+            'https://sistema-gestion-cursos-pm.onrender.com/api/tipos-cursos'
           );
 
 
@@ -219,7 +219,7 @@ function CursosAdmin() {
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/instituciones'
+            'https://sistema-gestion-cursos-pm.onrender.com/api/instituciones'
           );
 
 
@@ -539,7 +539,7 @@ function CursosAdmin() {
 
         const respuesta =
           await fetch(
-            'http://localhost:3000/api/cursos',
+            'https://sistema-gestion-cursos-pm.onrender.com/api/cursos',
             {
 
               method: 'POST',
@@ -653,7 +653,7 @@ function CursosAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/cursos/${cursoEditando}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/cursos/${cursoEditando}`,
             {
 
               method: 'PUT',
@@ -769,7 +769,7 @@ function CursosAdmin() {
 
         const respuesta =
           await fetch(
-            `http://localhost:3000/api/cursos/${curso.id_curso}`,
+            `https://sistema-gestion-cursos-pm.onrender.com/api/cursos/${curso.id_curso}`,
             {
 
               method: 'DELETE',
